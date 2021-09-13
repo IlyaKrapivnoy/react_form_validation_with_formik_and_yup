@@ -1,7 +1,24 @@
 import './App.css';
+import rocketImg from './assets/rocket.png';
+import Signup from './components/Signup';
 
 function App() {
-    return <div>hello world</div>;
+    return (
+        <div className='container mt-3'>
+            <div className='row'>
+                <div className='col-md-5'>
+                    <Signup />
+                </div>
+                <div className='col-md-7'>
+                    <img
+                        className='img-fluid w-100'
+                        src={rocketImg}
+                        alt='a rocket and a guy'
+                    />
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;

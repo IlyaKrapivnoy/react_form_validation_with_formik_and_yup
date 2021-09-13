@@ -11,16 +11,15 @@ const Signup = () => {
             .max(20, 'Must be 20 characters or less')
             .required('Required'),
         email: Yup.string()
-            .email("It doesn't look like real emain")
+            .email('Email is invalid')
             .required('Email is required'),
         password: Yup.string()
-            .min(6, 'Password must be at least 6 characters')
+            .min(6, 'Password must be at least 6 charaters')
             .required('Password is required'),
         confirmPassword: Yup.string()
             .oneOf([Yup.ref('password'), null], 'Password must match')
             .required('Confirm password is required'),
     });
-
     return (
         <Formik
             initialValues={{
@@ -30,11 +29,16 @@ const Signup = () => {
                 password: '',
                 confirmPassword: '',
             }}
+            validationSchema={validate}
+            onSubmit={(values) => {
+                console.log(values);
+            }}
         >
             {(formik) => (
                 <div>
-                    <h1 className='my-4 font-weight-bold-display-4'>Sign Up</h1>
-                    {console.log(formik.values)}
+                    <h1 className='my-4 font-weight-bold .display-4'>
+                        Sign Up
+                    </h1>
                     <Form>
                         <TextField
                             label='First Name'
@@ -57,14 +61,11 @@ const Signup = () => {
                             name='confirmPassword'
                             type='password'
                         />
-                        <button
-                            className='btn btn-dark mt-3 mr-3'
-                            type='submit'
-                        >
+                        <button className='btn btn-dark mt-3' type='submit'>
                             Register
                         </button>
                         <button
-                            className='btn btn-danger mt-3 mx-3'
+                            className='btn btn-danger mt-3 ml-3'
                             type='reset'
                         >
                             Reset

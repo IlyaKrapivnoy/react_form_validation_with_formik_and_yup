@@ -19,28 +19,24 @@ const Signup = () => {
                     <Form>
                         <TextField
                             label='First Name'
-                            value='firstName'
+                            name='firstName'
                             type='text'
                         />
                         <TextField
-                            label='Last Name'
-                            value='firstName'
+                            label='last Name'
+                            name='lastName'
                             type='text'
                         />
+                        <TextField label='Email' name='email' type='email' />
                         <TextField
-                            label='Email'
-                            value='firstName'
-                            type='text'
-                        />
-                        <TextField
-                            label='Password'
-                            value='firstName'
-                            type='text'
+                            label='password'
+                            name='password'
+                            type='password'
                         />
                         <TextField
                             label='Confirm Password'
-                            value='firstName'
-                            type='text'
+                            name='confirmPassword'
+                            type='password'
                         />
                     </Form>
                 </div>
